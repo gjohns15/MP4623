@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#111111" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@mipmap/ic_launcher" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/about_text"
+            android:textSize="30dp"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/C_Rating_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Courier Rating"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="23dp"
+            android:layout_alignBottom="@+id/C_Rating"
+            android:gravity="center_vertical"/>
+        <RatingBar
+            android:id="@+id/C_Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/C_Rating_Text"
+            android:layout_toEndOf="@+id/C_Rating_Text" />
+
+        <TextView
+            android:id="@+id/D_Rating_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver Rating"
+            android:textSize="23dp"
+            android:layout_below="@+id/C_Rating"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/D_Rating"
+            android:gravity="center_vertical"/>
+        <RatingBar
+            android:id="@+id/D_Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/C_Rating_Text"
+            android:layout_below="@id/C_Rating"
+            android:numStars="5"
+            />
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/Jobs"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+    </ListView>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Home"
+        android:layout_gravity="bottom"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Settings"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/button" />
+
+</RelativeLayout>
+
+</LinearLayout>
