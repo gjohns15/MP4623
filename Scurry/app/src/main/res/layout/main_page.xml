@@ -23,7 +23,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Zipcode"
+        android:hint="ZIP Code"
         android:textAlignment="center"
         android:id="@+id/localzip"
         android:layout_below="@+id/localsearch_button"
