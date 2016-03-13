@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <Button
+        android:id="@+id/post_button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Post a Job"
+        android:onClick="onPost"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/logout_button"
+        android:layout_alignEnd="@+id/logout_button" />
+    <Button
+        android:id="@+id/localsearch_button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Search Local Jobs"
+        android:onClick="onLocalSearch"
+        android:layout_below="@+id/post_button"
+        android:layout_alignRight="@+id/logout_button"
+        android:layout_alignEnd="@+id/logout_button" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zipcode"
+        android:textAlignment="center"
+        android:id="@+id/localzip"
+        android:layout_below="@+id/localsearch_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/routesearch_button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Search Jobs by Route"
+        android:onClick="onRouteSearch"
+        android:layout_alignBaseline="@+id/profile_button"
+        android:layout_alignBottom="@+id/profile_button"
+        android:layout_alignRight="@+id/logout_button"
+        android:layout_alignEnd="@+id/logout_button" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startzip"
+        android:hint="Starting ZIP code"
+        android:layout_below="@+id/routesearch_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/destzip"
+        android:hint="Destination ZIP code"
+        android:layout_below="@+id/routesearch_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Profile"
+        android:onClick="onProfile"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Logout"
+        android:onClick="onLogout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-</LinearLayout>
+</RelativeLayout>
