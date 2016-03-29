@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32sp">
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- REVIEW TITLE -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_edit_text"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Title"/>
+
+    <!-- REVIEW BODY -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/round_edit_text"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:hint="Review"
+        android:gravity="start"
+        android:paddingTop="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- POST BUTTON -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POST"/>
+
+</LinearLayout>
