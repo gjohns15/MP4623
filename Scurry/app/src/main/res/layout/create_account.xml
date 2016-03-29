@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Please enter your account information"
-        android:textColor="#black"
+        android:textColor="#fff"
         android:textSize="30dp"
         android:textAlignment="center"/>
     <EditText
