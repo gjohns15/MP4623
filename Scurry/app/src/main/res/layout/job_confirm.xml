@@ -6,13 +6,24 @@
     android:layout_height="match_parent"
     android:padding="32sp">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="JOB TITLE"
-        android:textSize="30sp"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"/>
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/cardboard_box"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOB TITLE"
+            android:textSize="30sp"
+            android:padding="10dp"/>
+
+    </LinearLayout>
 
     <View
         android:background="#000"
