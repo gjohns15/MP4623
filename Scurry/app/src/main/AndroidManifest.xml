@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainScreen"/>
+        <activity android:name=".PostingForm"/>
+        <activity android:name=".ProfilePage"/>
+        <activity android:name=".ProfileSettings" />
+        <activity android:name=".SearchResults"/>
+        <activity android:name=".CreateAccount"/>
+
+
     </application>
 
 </manifest>

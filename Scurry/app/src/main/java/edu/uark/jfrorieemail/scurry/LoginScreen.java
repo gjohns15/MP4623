@@ -1,6 +1,7 @@
 package edu.uark.jfrorieemail.scurry;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,11 +42,19 @@ public class LoginScreen extends AppCompatActivity {
             }
             else{
                 setContentView(R.layout.main_page);
+
+                //Starting the intent for the next class
+                Intent intent = new Intent(LoginScreen.this, MainScreen.class);
+                startActivity(intent);
             }
         }
     }
 
     private boolean isEmailValid(String email){
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public void onSignUp(View view){
+        setContentView(R.layout.create_account);
     }
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Job Post Button -->
     <Button
         android:id="@+id/post_button"
         android:layout_width="match_parent"
@@ -11,6 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/logout_button"
         android:layout_alignEnd="@+id/logout_button" />
+
+    <!-- Job Search Button -->
     <Button
         android:id="@+id/localsearch_button"
         android:layout_width="match_parent"
@@ -20,15 +26,19 @@
         android:layout_below="@+id/post_button"
         android:layout_alignRight="@+id/logout_button"
         android:layout_alignEnd="@+id/logout_button" />
+
+    <!-- Local Zip Code -->
     <EditText
+        android:id="@+id/localzip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ZIP Code"
         android:textAlignment="center"
-        android:id="@+id/localzip"
         android:layout_below="@+id/localsearch_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <!-- Search Jobs by Route -->
     <Button
         android:id="@+id/routesearch_button"
         android:layout_width="match_parent"
@@ -39,6 +49,8 @@
         android:layout_alignBottom="@+id/profile_button"
         android:layout_alignRight="@+id/logout_button"
         android:layout_alignEnd="@+id/logout_button" />
+
+    <!-- Starting Zip Code -->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,6 +59,8 @@
         android:layout_below="@+id/routesearch_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <!-- Destination Zip Code -->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,6 +69,8 @@
         android:layout_below="@+id/routesearch_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <!-- Profile Button -->
     <Button
         android:id="@+id/profile_button"
         android:layout_width="wrap_content"
@@ -64,6 +80,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <!-- Logout Button -->
     <Button
         android:id="@+id/logout_button"
         android:layout_width="wrap_content"

@@ -50,6 +50,8 @@
         android:text="Login"
         android:onClick="onLogin" />
 
+    <!-- Need to space these out so customer doesn't accidentally click Sign up -->
+
     <!-- Sign up Button -->
     <Button
         android:layout_width="match_parent"
