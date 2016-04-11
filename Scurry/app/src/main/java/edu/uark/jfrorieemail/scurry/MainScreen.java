@@ -16,18 +16,21 @@ public class MainScreen extends AppCompatActivity{
         setContentView(R.layout.main_page);
     }
 
+    //changes to post
     public void onPost(View view){
-        setContentView(R.layout.posting_form);
+        setContentView(R.layout.job_posting);
         Intent intent = new Intent(MainScreen.this, PostingForm.class);
         startActivity(intent);
     }
 
+    //changes to search
     public void onLocalSearch(View view){
-        setContentView(R.layout.search);
+        setContentView(R.layout.search_results);
         Intent intent = new Intent(MainScreen.this, SearchResults.class);
         startActivity(intent);
     }
 
+    //changes to Profile page
     public void onProfile(View view){
         setContentView(R.layout.profile_page);
         Intent intent = new Intent(MainScreen.this, ProfilePage.class);

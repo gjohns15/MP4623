@@ -11,6 +11,8 @@ public class PostingForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.posting_form);
+        setContentView(R.layout.job_posting);
     }
+
+    //This class will have to have logic to be able to post jobs and reviews
 }

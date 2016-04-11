@@ -1,7 +1,9 @@
 package edu.uark.jfrorieemail.scurry;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 /**
  * Created by james on 3/13/2016.
@@ -15,4 +17,26 @@ public class ProfilePage extends AppCompatActivity {
     }
 
 
+    //not called from XML yet
+    //assuming that the class Posting Form is for user to post about the driver
+    public void userReview(View view){
+        setContentView(R.layout.user_post_review);
+        Intent intent = new Intent(ProfilePage.this, PostingForm.class);
+        startActivity(intent);
+    }
+
+    //Changes screen to Profile settings
+    public void profSettings(View view){
+        setContentView(R.layout.profile_settings);
+        Intent intent = new Intent(ProfilePage.this, ProfileSettings.class);
+        startActivity(intent);
+    }
+
+    //Needs to be implemented in the XML too
+    //Changes to DM
+    public void DM(View view){
+        setContentView(R.layout.mult_messages);
+        Intent intent = new Intent(ProfilePage.this, Messages.class);
+        startActivity(intent);
+    }
 }
