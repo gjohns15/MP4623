@@ -51,7 +51,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/login_button"
+        android:id="@+id/create_button"
         android:text="Create Account"
         android:onClick="onCreateAccount"
         android:layout_above="@+id/cancel_button"/>

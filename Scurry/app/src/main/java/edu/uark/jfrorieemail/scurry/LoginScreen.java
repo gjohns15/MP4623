@@ -55,6 +55,7 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     public void onSignUp(View view){
-        setContentView(R.layout.create_account);
+        startActivity(new Intent(this, CreateAccount.class));
+
     }
 }
