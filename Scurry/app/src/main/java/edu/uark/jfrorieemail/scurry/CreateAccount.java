@@ -43,35 +43,27 @@ public class CreateAccount extends AppCompatActivity {
         email = ET_EMAIL.getText().toString();
         password1 = ET_PASS1.getText().toString();
         password2 = ET_PASS2.getText().toString();
-        Boolean empty = true;
 
         //Test for empty input fields/ password matching/ valid email
             if(first_name.trim().equals("") || first_name == null){
-                empty = true;
                 Toast.makeText(getApplicationContext(), "Please enter a first name.", Toast.LENGTH_SHORT).show();
             }
             else if(last_name.trim().equals("")|| last_name == null){
-                empty = true;
                 Toast.makeText(getApplicationContext(), "Please enter a last name.", Toast.LENGTH_SHORT).show();
             }
             else if(email.trim().equals("") || email == null){
-                empty = true;
                 Toast.makeText(getApplicationContext(), "Please enter an email.", Toast.LENGTH_SHORT).show();
             }
             else if(isEmailValid(email) == false){
-                empty = true;
                 Toast.makeText(getApplicationContext(), "Email not valid", Toast.LENGTH_SHORT).show();
             }
             else if(password1.trim().equals("") || password1 == null){
-                empty = true;
                 Toast.makeText(getApplicationContext(), "Please enter a password.", Toast.LENGTH_SHORT).show();
             }
-            else if(password2.trim().equals("")|| password2 == null){
-                empty = true;
+            else if(password2.trim().equals("")|| password2 == null){;
                 Toast.makeText(getApplicationContext(), "Please enter a password.", Toast.LENGTH_SHORT).show();
             }
              else if(!(password1.trim().equals(password2))){
-                empty = true;
                 Toast.makeText(getApplicationContext(), "Passwords do not match.", Toast.LENGTH_SHORT).show();
             }
             //Create Account
