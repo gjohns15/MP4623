@@ -5,12 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:textColor="black"
+        android:textSize="22dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Title"/>
+    <TextView
+        android:id="@+id/job_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:text="insert job title" />
 
+    <TextView
+        android:textColor="black"
+        android:textSize="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Poster"/>
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Name of Posting User"
+    android: onClick="onViewUser"/>
 
+    <TextView
+        android:textColor="black"
+        android:textSize="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Job Post"
-        android:textSize="30sp" />
+        android:text="Concatonated Address String"/>
+
+    <TextView
+        android:textColor="black"
+        android:textSize="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Job Description" />
 
 </LinearLayout>
