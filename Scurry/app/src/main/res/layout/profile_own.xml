@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="#EF9A9A">
+
+        <!-- DEFAULT PHOTO
+
+            NEED TO PULL FROM DATABASE TO CUSTOMIZE-->
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/default_user_image"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="32sp"/>
+
+
+        <!-- NAME -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FIRST LAST"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="32sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16sp">
+
+
+        <TextView
+            android:id="@+id/C_Rating_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Courier"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="23dp"
+            android:layout_alignBottom="@+id/C_Rating"
+            android:gravity="center_vertical"/>
+
+        <RatingBar
+            android:id="@+id/C_Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/D_Rating_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver"
+            android:textSize="23dp"
+            android:layout_below="@+id/C_Rating"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/D_Rating"
+            android:gravity="center_vertical"/>
+
+        <RatingBar
+            android:id="@+id/D_Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:layout_below="@+id/C_Rating"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#BDBDBD"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- PHONE ICON -->
+        <ImageView
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:src="@drawable/phone"
+            android:layout_marginLeft="16sp"
+            android:layout_marginTop="16sp" />
+
+        <!-- PHONE NUMBER -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(XXX)XXX-XXXX"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="24sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="48sp"
+        android:layout_height="48sp"
+        android:src="@drawable/edit"
+        android:layout_margin="16sp"
+        android:layout_gravity="right"
+        android:onClick="editProfile"/>
+
+
+    <!-- NOT WORKING IDK WHY
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:textSize="16dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="16sp"
+        android:layout_marginBottom="16sp"/>
+    -->
+
+</LinearLayout>

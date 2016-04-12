@@ -14,5 +14,7 @@ public class Messages extends AppCompatActivity {
         setContentView(R.layout.mult_messages);
     }
 
-
+    public void sendMessage(){
+        //called from profile_other.xml
+    }
 }

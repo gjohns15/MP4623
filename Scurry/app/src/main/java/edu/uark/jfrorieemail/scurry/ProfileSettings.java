@@ -13,4 +13,10 @@ public class ProfileSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_settings);
     }
+
+    public void editProfile(){
+        //Will allow the user to edit profile settings
+        //i.e. Name, Phone number, etc
+        //Called from ImageView in xml page profile_own
+    }
 }
