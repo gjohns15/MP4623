@@ -15,4 +15,8 @@ public class PostingForm extends AppCompatActivity {
     }
 
     //This class will have to have logic to be able to post jobs and reviews
+
+    public void reviewDriver(){
+        //Called from profile_other.xml
+    }
 }
