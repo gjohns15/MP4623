@@ -38,37 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <!-- Search Jobs by Route -->
-    <Button
-        android:id="@+id/routesearch_button"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="Search Jobs by Route"
-        android:onClick="onRouteSearch"
-        android:layout_alignBaseline="@+id/profile_button"
-        android:layout_alignBottom="@+id/profile_button"
-        android:layout_alignRight="@+id/logout_button"
-        android:layout_alignEnd="@+id/logout_button" />
 
-    <!-- Starting Zip Code -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/startzip"
-        android:hint="Starting ZIP code"
-        android:layout_below="@+id/routesearch_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <!-- Destination Zip Code -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/destzip"
-        android:hint="Destination ZIP code"
-        android:layout_below="@+id/routesearch_button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <!-- Profile Button -->
     <Button

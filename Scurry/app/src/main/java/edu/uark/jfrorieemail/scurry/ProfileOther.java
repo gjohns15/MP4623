@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by grantjohns on 4/14/16.
  */
-public class UserProfilePage extends AppCompatActivity
+public class ProfileOther extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,13 +15,7 @@ public class UserProfilePage extends AppCompatActivity
         setContentView(R.layout.user_profile_page);
     }
 
-    public void onHome()
-    {
-        Intent intent = new Intent(this, MainScreen.class);
-        startActivity(intent);
-    }
-
-    public void onReview()
+    public void reviewDriver()
     {
         Intent intent = new Intent(this, PostReview.class);
         //send user information to review page
@@ -29,7 +23,7 @@ public class UserProfilePage extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void onContact()
+    public void sendMessage()
     {
         Intent intent = new Intent(this, FirstDirectMessage.class);
         //send user information to message page
