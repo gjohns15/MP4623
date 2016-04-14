@@ -56,7 +56,6 @@ public class LoginScreen extends AppCompatActivity {
             //LOGIN
             LoginAccount loginAccount = new LoginAccount(this);
           loginAccount.execute(email, password);
-            //finish();
 
 
 

@@ -3,14 +3,17 @@ package edu.uark.jfrorieemail.scurry;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -44,6 +47,8 @@ public class CreateAccount extends AppCompatActivity {
         password1 = ET_PASS1.getText().toString();
         password2 = ET_PASS2.getText().toString();
 
+
+
         //Test for empty input fields/ password matching/ valid email
             if(first_name.trim().equals("") || first_name == null){
                 Toast.makeText(getApplicationContext(), "Please enter a first name.", Toast.LENGTH_SHORT).show();
@@ -68,9 +73,8 @@ public class CreateAccount extends AppCompatActivity {
             }
             //Create Account
             else{
-                CreateNewAccount createNewAccount = new CreateNewAccount(this);
-                createNewAccount.execute(first_name, last_name, email, password1);
-                finish();
+                CheckEmail checkEmail = new CheckEmail(this);
+                checkEmail.execute(email);
 
             }
 
@@ -78,6 +82,78 @@ public class CreateAccount extends AppCompatActivity {
     private boolean isEmailValid(String email){
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
+    private class CheckEmail extends  AsyncTask<String, String, String>{
+        AlertDialog alertDialog;
+        Context ctx;
+
+        CheckEmail(Context ctx){
+            this.ctx = ctx;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            alertDialog = new AlertDialog.Builder(ctx).create();
+            alertDialog.setTitle("Email Information");
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String email_url = "http://10.0.2.2/scurry/check_email.php";
+            String email = params[0];
+
+            try {
+                URL url = new URL(email_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream OS = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
+
+                String data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8");
+
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                OS.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String response = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    response += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return response;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            result= result.trim();
+            if(result.equals("This email is already associated with an account. Please enter another email or log in.")){
+                alertDialog.setMessage(result);
+                alertDialog.show();
+            }
+            else {
+                CreateNewAccount createNewAccount = new CreateNewAccount(CreateAccount.this);
+                createNewAccount.execute(first_name, last_name, email, password1);
+                finish();
+            }
+        }
+    }
+
 
     private class CreateNewAccount extends AsyncTask<String, String, String> {
         Context ctx;
@@ -98,6 +174,7 @@ public class CreateAccount extends AppCompatActivity {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
                 OutputStream OS = httpURLConnection.getOutputStream();
 
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
@@ -110,11 +187,25 @@ public class CreateAccount extends AppCompatActivity {
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 OS.close();
-                InputStream IS = httpURLConnection.getInputStream();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String response = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    response += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return response;
+
+
+
+                /*InputStream IS = httpURLConnection.getInputStream();
                 IS.close();
                 httpURLConnection.disconnect();
                 httpURLConnection.disconnect();
-                return "Registration Success...";
+                return "Registration Success";*/
 
 
             } catch (MalformedURLException e) {
@@ -130,7 +221,16 @@ public class CreateAccount extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
+            result= result.trim();
+            if(result.equals("Data insertion Success")){
+                result = "Registration Successful";
                 Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
+            }
+            else {
+                result = "Error " + result;
+                Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
+            }
+
         }
 
     }
