@@ -13,8 +13,8 @@
         android:text="Post a Job"
         android:onClick="onPost"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/logout_button"
-        android:layout_alignEnd="@+id/logout_button" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!-- Job Search Button -->
     <Button
@@ -23,21 +23,9 @@
         android:layout_height="100dp"
         android:text="Search Local Jobs"
         android:onClick="onLocalSearch"
-        android:layout_below="@+id/post_button"
-        android:layout_alignRight="@+id/logout_button"
-        android:layout_alignEnd="@+id/logout_button" />
-
-    <!-- Local Zip Code -->
-    <EditText
-        android:id="@+id/localzip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ZIP Code"
-        android:textAlignment="center"
-        android:layout_below="@+id/localsearch_button"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
 
 
     <!-- Profile Button -->
