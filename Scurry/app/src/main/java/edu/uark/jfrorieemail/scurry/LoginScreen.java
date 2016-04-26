@@ -4,6 +4,7 @@ package edu.uark.jfrorieemail.scurry;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class LoginScreen extends AppCompatActivity {
+    public static final String MyPREFERENCES = "MyPrefs" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,10 @@ public class LoginScreen extends AppCompatActivity {
         }
     }
     private class LoginAccount extends AsyncTask<String, String, String> {
+        public static final String Name = "nameKey";
+        public static final String ID = "idKey";
+        SharedPreferences sharedpreferences;
+
         AlertDialog alertDialog;
         Context ctx;
 
@@ -83,6 +89,7 @@ public class LoginScreen extends AppCompatActivity {
         protected void onPreExecute() {
             alertDialog = new AlertDialog.Builder(ctx).create();
             alertDialog.setTitle("Login Information");
+            sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         }
 
         @Override
@@ -133,12 +140,25 @@ public class LoginScreen extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             result= result.trim();
-            if(result.equals("Login Success")){
+            String[] str = result.split("-");
+            String message = str[0];
+
+            if(message.equals("Login Success")){
+                String name = str[1];
+                String id = str[2];
+                message = message+" "+name+" "+id;
+               SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(Name, name);
+                editor.putString(ID, id);
+                editor.commit();
+                alertDialog.setMessage(message);
+                alertDialog.show();
+
                 Intent intent = new Intent(LoginScreen.this, MainScreen.class);
                 startActivity(intent);
             }
             else {
-                alertDialog.setMessage(result);
+                alertDialog.setMessage(message);
                 alertDialog.show();
             }
         }

@@ -124,18 +124,7 @@
         android:src="@drawable/edit"
         android:layout_margin="16sp"
         android:layout_gravity="right"
-        android:onClick="editProfile"/>
+        android:onClick="profSettings"/>
 
-
-    <!-- NOT WORKING IDK WHY
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Profile"
-        android:textSize="16dp"
-        android:layout_gravity="right"
-        android:layout_marginRight="16sp"
-        android:layout_marginBottom="16sp"/>
-    -->
 
 </LinearLayout>

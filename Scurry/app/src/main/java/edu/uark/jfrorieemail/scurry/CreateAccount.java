@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.PhoneNumberUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,8 +26,8 @@ import java.net.URLEncoder;
  * Created by grantjohns on 3/13/16.
  */
 public class CreateAccount extends AppCompatActivity {
-    EditText ET_EMAIL, ET_FIRST, ET_LAST,  ET_PASS1, ET_PASS2;
-    String first_name, last_name, email, password1, password2;
+    EditText ET_EMAIL, ET_FIRST, ET_LAST,  ET_PHONE, ET_PASS1, ET_PASS2;
+    String first_name, last_name, email, phone_number, password1, password2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class CreateAccount extends AppCompatActivity {
         ET_EMAIL = (EditText)findViewById(R.id.email);
         ET_FIRST = (EditText)findViewById(R.id.fname);
         ET_LAST = (EditText)findViewById(R.id.lname);
+        ET_PHONE = (EditText)findViewById(R.id.phone_number);
         ET_PASS1 = (EditText)findViewById(R.id.password);
         ET_PASS2 = (EditText)findViewById(R.id.password2);
 
@@ -44,6 +46,7 @@ public class CreateAccount extends AppCompatActivity {
         first_name = ET_FIRST.getText().toString();
         last_name = ET_LAST.getText().toString();
         email = ET_EMAIL.getText().toString();
+        phone_number = ET_PHONE.getText().toString();
         password1 = ET_PASS1.getText().toString();
         password2 = ET_PASS2.getText().toString();
 
@@ -61,6 +64,9 @@ public class CreateAccount extends AppCompatActivity {
             }
             else if(isEmailValid(email) == false){
                 Toast.makeText(getApplicationContext(), "Email not valid", Toast.LENGTH_SHORT).show();
+            }
+            else if (isPhoneValid(phone_number) == false){
+                Toast.makeText(getApplicationContext(), "Phone number is not valid.", Toast.LENGTH_SHORT).show();
             }
             else if(password1.trim().equals("") || password1 == null){
                 Toast.makeText(getApplicationContext(), "Please enter a password.", Toast.LENGTH_SHORT).show();
@@ -81,6 +87,9 @@ public class CreateAccount extends AppCompatActivity {
     }
     private boolean isEmailValid(String email){
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+    private boolean isPhoneValid(String phone_number){
+        return PhoneNumberUtils.isGlobalPhoneNumber(phone_number);
     }
 
     private class CheckEmail extends  AsyncTask<String, String, String>{
