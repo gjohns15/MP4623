@@ -1,7 +1,7 @@
 package edu.uark.jfrorieemail.scurry;
 
 /**
- * Created by grantjohns on 4/20/16.
+ * Created by grantjohns
  */
 public class Review
 {

@@ -2,11 +2,10 @@ package edu.uark.jfrorieemail.scurry;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.content.SharedPreferences;
-import android.widget.Toast;
 
 /**
  * Created by grantjohns on 3/13/16.
@@ -21,22 +20,19 @@ public class MainScreen extends AppCompatActivity{
 
     //changes to post
     public void onPost(View view){
-        setContentView(R.layout.job_posting);
         Intent intent = new Intent(MainScreen.this, PostingForm.class);
         startActivity(intent);
     }
 
     //changes to search
     public void onLocalSearch(View view){
-       setContentView(R.layout.search_results);
-        Intent intent = new Intent(MainScreen.this, SearchResults.class);
+        Intent intent = new Intent(MainScreen.this, MapsActivity.class);
         startActivity(intent);
 
     }
 
     //changes to Profile page
     public void onProfile(View view){
-        setContentView(R.layout.profile_own);
         Intent intent = new Intent(MainScreen.this, ProfilePage.class);
         startActivity(intent);
     }

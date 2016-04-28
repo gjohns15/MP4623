@@ -6,9 +6,65 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Profile Settings"
-        android:textSize="30sp"/>
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="black"
+        android:paddingBottom="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fnameView"
+        android:text="First Name"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fnameText"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnameView"
+        android:text="Last Name"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnameText"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numView"
+        android:text="Phone Number"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numText"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:layout_gravity="center"
+        android:onClick="onSave"/>
 
 </LinearLayout>

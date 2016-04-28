@@ -34,9 +34,8 @@ public class ProfilePage extends AppCompatActivity {
 
         Toast.makeText(this, sharedpreferences.getString("idKey", "No ID"),
                 Toast.LENGTH_LONG).show();
-    /*    setContentView(R.layout.profile_settings);
         Intent intent = new Intent(ProfilePage.this, ProfileSettings.class);
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
     //Needs to be implemented in the XML too
