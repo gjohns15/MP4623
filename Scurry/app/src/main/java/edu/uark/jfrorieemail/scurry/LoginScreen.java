@@ -83,7 +83,7 @@ public class LoginScreen extends AppCompatActivity {
             this.ctx = ctx;
         }
 
-        String login_url = "http://10.0.2.2/scurry/login.php";
+        String login_url = "http://[2602:306:cc42:9780:d5b5:b259:ff89:f9f]:8080/scurry/login.php";
 
         @Override
         protected void onPreExecute() {
@@ -151,8 +151,8 @@ public class LoginScreen extends AppCompatActivity {
                 editor.putString(Name, name);
                 editor.putString(ID, id);
                 editor.commit();
-                alertDialog.setMessage(message);
-                alertDialog.show();
+              //  alertDialog.setMessage(message);
+              //  alertDialog.show();
 
                 Intent intent = new Intent(LoginScreen.this, MainScreen.class);
                 startActivity(intent);

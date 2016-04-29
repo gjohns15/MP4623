@@ -28,7 +28,6 @@
         <activity android:name=".PostingForm" />
         <activity android:name=".ProfilePage" />
         <activity android:name=".ProfileSettings" />
-        <activity android:name=".SearchResults" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".Messages" />
 

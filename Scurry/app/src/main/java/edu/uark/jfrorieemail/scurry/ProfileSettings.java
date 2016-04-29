@@ -28,9 +28,9 @@ public class ProfileSettings extends AppCompatActivity {
         PN = (EditText) findViewById(R.id.numText);
 
         //instantiate field values
-        FN.setText();
-        LN.setText();
-        PN.setText();
+     //   FN.setText();
+    //    LN.setText();
+    //    PN.setText();
     }
 
     public void onSave()

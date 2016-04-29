@@ -11,7 +11,7 @@ public class Messages extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mult_messages);
+        setContentView(R.layout.send_message);
     }
 
     public void sendMessage(){

@@ -108,7 +108,7 @@ public class CreateAccount extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String email_url = "http://10.0.2.2/scurry/check_email.php";
+            String email_url = "http://[2602:306:cc42:9780:d5b5:b259:ff89:f9f]:8080/scurry/check_email.php";
             String email = params[0];
 
             try {
