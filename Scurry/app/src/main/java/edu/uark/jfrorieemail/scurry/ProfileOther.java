@@ -25,9 +25,9 @@ public class ProfileOther extends AppCompatActivity
 
     public void sendMessage()
     {
-        Intent intent = new Intent(this, SendMessage.class);
+        Intent intent = new Intent(this, Message.class);
         //send user information to message page
         //intent.putExtra
-        startActivity(intent);
+        //startActivity(intent);
     }
 }

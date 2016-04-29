@@ -12,7 +12,7 @@
         android:layout_height="100dp"
         android:text="Post a Job"
         android:onClick="onPost"
-        android:layout_above="@+id/localsearch_button"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -23,10 +23,20 @@
         android:layout_height="100dp"
         android:text="Search Local Jobs"
         android:onClick="onLocalSearch"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/post_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <!-- Message Button -->
+    <Button
+        android:id="@+id/message_button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Send Message (temp)"
+        android:onClick="onMessage"
+        android:layout_below="@+id/localsearch_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!-- Profile Button -->
     <Button
@@ -38,6 +48,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 
     <!-- Logout Button -->
     <Button

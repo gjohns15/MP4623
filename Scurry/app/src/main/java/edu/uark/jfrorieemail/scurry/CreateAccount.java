@@ -1,6 +1,7 @@
 package edu.uark.jfrorieemail.scurry;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -42,6 +43,11 @@ public class CreateAccount extends AppCompatActivity {
 
     }
 
+    public  void onCancel(View view){
+        Intent intent = new Intent(CreateAccount.this, LoginScreen.class);
+        startActivity(intent);
+
+    }
     public void onCreateAccount(View view){
         first_name = ET_FIRST.getText().toString();
         last_name = ET_LAST.getText().toString();

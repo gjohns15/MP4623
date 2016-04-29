@@ -37,6 +37,11 @@ public class MainScreen extends AppCompatActivity{
         startActivity(intent);
     }
 
+    public void onMessage(View view){
+        Intent intent = new Intent(MainScreen.this, Message.class);
+        startActivity(intent);
+    }
+
     public void onLogout(View view){
         //Save all the information
         //Go back to the login page
