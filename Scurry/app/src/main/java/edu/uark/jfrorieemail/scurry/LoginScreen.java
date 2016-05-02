@@ -83,7 +83,7 @@ public class LoginScreen extends AppCompatActivity {
             this.ctx = ctx;
         }
 
-        String login_url = "http://[2602:306:cc42:9780:d5b5:b259:ff89:f9f]:8080/scurry/login.php";
+        String login_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/login.php";
 
         @Override
         protected void onPreExecute() {

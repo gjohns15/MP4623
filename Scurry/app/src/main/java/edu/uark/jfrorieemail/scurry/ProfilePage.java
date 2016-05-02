@@ -38,7 +38,7 @@ public class ProfilePage extends AppCompatActivity {
     }
 
     private class Populate extends AsyncTask<String, String, String> {
-        String profile_url = "http://[2602:306:cc42:9780:d5b5:b259:ff89:f9f]:8080/scurry/profile_own.php";
+        String profile_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/profile_own.php";
 
         @Override
         protected String doInBackground(String... params) {

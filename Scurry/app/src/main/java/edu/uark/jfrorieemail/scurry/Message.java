@@ -50,7 +50,7 @@ public class Message extends AppCompatActivity
 
 
     private class sendMessage extends AsyncTask<String, String, String> {
-        String profile_url = "http://[2602:306:cc42:9780:d5b5:b259:ff89:f9f]:8080/scurry/messages.php";
+        String profile_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/messages.php";
 
         @Override
         protected String doInBackground(String... params) {
@@ -101,41 +101,12 @@ public class Message extends AppCompatActivity
 
         @Override
         protected void onPostExecute(String result) {
+            if(result.length() > 0){
             result = result.trim();
-            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();}
 
         }
     }
 
-  /*  public Message (String m, int s, int r)
-    {
-        MESSAGE_ET = (EditText) MESSAGE_ET.findViewById(R.id.message);
-        sendID = s;
-        recieveID = r;
-    }
 
-    String getMessage()
-    {
-        return  message;
-    }
-    void setmessage(String m)
-    {
-        message = m;
-    }
-    int getsendID()
-    {
-        return sendID;
-    }
-    void setsendID(int s)
-    {
-       sendID = s;
-    }
-    int getrecieveID()
-    {
-        return recieveID;
-    }
-    void setrecieveID(int r)
-    {
-        recieveID = r;
-    }*/
 }
