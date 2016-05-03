@@ -44,8 +44,7 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     public  void onCancel(View view){
-        Intent intent = new Intent(CreateAccount.this, LoginScreen.class);
-        startActivity(intent);
+        finish();
 
     }
     public void onCreateAccount(View view){
@@ -114,7 +113,7 @@ public class CreateAccount extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String email_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/check_email.php";
+            String email_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/check_email.php";
             String email = params[0];
 
             try {

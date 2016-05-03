@@ -1,54 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <TextView
-        android:textColor= "#000000"
-        android:textSize="22dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Title"/>
-    <TextView
-        android:id="@+id/job_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:text="insert job title" />
-
-    <TextView
+        android:text="Please enter your job information"
         android:textColor="#000000"
-        android:textSize="22dp"
+        android:textSize="30dp"
+        android:textAlignment="center"/>
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Poster"/>
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Name of Posting User"
-    android:onClick="onViewUser"/>
-
-    <TextView
-        android:textColor="#000000"
-        android:textSize="22dp"
+        android:id="@+id/title"
+        android:hint="Job Title"
+        android:maxLines="1"
+        android:singleLine="true"/>
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"/>
-    <TextView
+        android:id="@+id/description"
+        android:hint="Job Description"
+        android:maxLines="1"
+        android:singleLine="true"/>
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Concatonated Address String"/>
-
-    <TextView
-        android:textColor="#000000"
-        android:textSize="22dp"
+        android:id="@+id/address"
+        android:hint="Job Address"
+        android:maxLines="1"
+        android:singleLine="true"/>
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"/>
-    <TextView
+        android:id="@+id/create_button"
+        android:text="Post Job"
+        android:onClick="onPostJob"
+        android:layout_above="@+id/cancel_button"/>
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Job Description" />
+        android:id="@+id/cancel_button"
+        android:text="Cancel"
+        android:onClick="onCancel"/>
 
 </LinearLayout>
