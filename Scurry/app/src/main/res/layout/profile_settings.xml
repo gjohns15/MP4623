@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -7,6 +7,7 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:id= "@+id/title"
         android:layout_height="wrap_content"
         android:text="Profile Settings"
         android:gravity="center"
@@ -14,57 +15,137 @@
         android:textColor="#000000"
         android:paddingBottom="15dp"/>
 
+    <!-- Email -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/emailView"
+        android:text=" Email: "
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_below="@+id/title"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailCurrent"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_below="@+id/title"
+        android:layout_toRightOf="@+id/emailView"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailText"
+        android:hint="New Email"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/emailView"
+        android:singleLine="false" />
+
+    <!-- First Name -->
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/fnameView"
+        android:text=" First Name: "
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_below="@+id/emailText"/>
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fnameCurrent"
         android:text="First Name"
         android:textColor="#000000"
         android:textSize="25sp"
-        android:paddingBottom="15dp"/>
+        android:layout_below="@+id/emailText"
+        android:layout_toRightOf="@+id/fnameView"
+        />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fnameText"
+        android:hint="New First Name"
         android:textColor="#000000"
         android:textSize="25sp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/fnameView"/>
+
+    <!-- Last Name -->
     <TextView
+        android:paddingTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lnameView"
+        android:text=" Last Name: "
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_below="@+id/fnameText"/>
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnameCurrent"
         android:text="Last Name"
         android:textColor="#000000"
         android:textSize="25sp"
-        android:paddingBottom="15dp"/>
+        android:layout_below="@+id/fnameText"
+        android:layout_toRightOf="@id/lnameView"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lnameText"
+        android:hint="New Last Name"
         android:textColor="#000000"
         android:textSize="25sp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/lnameView"/>
+
+    <!-- Phone Number -->
     <TextView
+        android:paddingTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/numView"
-        android:text="Phone Number"
+        android:text=" Phone Number: "
         android:textColor="#000000"
         android:textSize="25sp"
-        android:paddingBottom="15dp"/>
+        android:layout_below="@+id/lnameText"/>
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numCurrent"
+        android:text=" Phone Number"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_below="@+id/lnameText"
+        android:layout_toRightOf="@+id/numView"/>
     <EditText
+        android:paddingTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/numText"
+        android:hint="New Phone Number"
         android:textColor="#000000"
         android:textSize="25sp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="10dp"
+        android:layout_below="@id/numView"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Changes"
         android:layout_gravity="center"
-        android:onClick="onSave"/>
+        android:onClick="onSave"
+        android:layout_below="@+id/numText"
+        android:layout_centerHorizontal="true" />
 
-</LinearLayout>
+</RelativeLayout>
