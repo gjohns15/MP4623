@@ -91,9 +91,13 @@ public class ProfilePage extends AppCompatActivity {
             result= result.trim();
             String[] str = result.split(",");
             TextView name = (TextView)findViewById(R.id.name);
-            name.setText(String.valueOf(str[0]));
+            if(!(String.valueOf(str[0]) == null)) {
+                name.setText(String.valueOf(str[0]));
+            }
             TextView phone = (TextView)findViewById(R.id.phone_number);
-            phone.setText(String.valueOf(str[1]));
+            if(!(String.valueOf(str[0]) == null)) {
+                phone.setText(String.valueOf(str[1]));
+            }
 
         }
 
@@ -102,19 +106,14 @@ public class ProfilePage extends AppCompatActivity {
     //not called from XML yet
     //assuming that the class Posting Form is for user to post about the driver
     public void userReview(View view){
-        setContentView(R.layout.user_post_review);
         Intent intent = new Intent(ProfilePage.this, PostingForm.class);
     startActivity(intent);
 }
 
     //Changes screen to Profile settings
     public void profSettings(View view){
-        SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
-
-        Toast.makeText(this, sharedpreferences.getString("idKey", "No ID"),
-                Toast.LENGTH_LONG).show();
-     //   Intent intent = new Intent(ProfilePage.this, ProfileSettings.class);
-     //   startActivity(intent);
+       Intent intent = new Intent(ProfilePage.this, ProfileSettings.class);
+      startActivity(intent);
     }
 
     //Needs to be implemented in the XML too
