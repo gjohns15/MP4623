@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,7 +30,6 @@ public class ProfilePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //  setContentView(R.layout.profile_own);
         setContentView(R.layout.profile_own);
         Populate populate = new Populate();
         populate.execute();
@@ -103,7 +101,6 @@ public class ProfilePage extends AppCompatActivity {
 
     }
 
-    //not called from XML yet
     //assuming that the class Posting Form is for user to post about the driver
     public void userReview(View view){
         Intent intent = new Intent(ProfilePage.this, PostingForm.class);
@@ -116,7 +113,6 @@ public class ProfilePage extends AppCompatActivity {
       startActivity(intent);
     }
 
-    //Needs to be implemented in the XML too
     //Changes to DM
     public void DM(View view){
         setContentView(R.layout.send_message);

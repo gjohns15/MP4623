@@ -32,7 +32,8 @@
             android:text="FIRST LAST"
             android:textSize="30sp"
             android:gravity="center_horizontal"
-            android:paddingBottom="32sp" />
+            android:paddingBottom="32sp"
+            android:id="@+id/name" />
 
     </LinearLayout>
 
@@ -98,7 +99,8 @@
             android:textSize="30sp"
             android:gravity="center_horizontal"
             android:layout_marginLeft="32sp"
-            android:layout_marginTop="24sp"/>
+            android:layout_marginTop="24sp"
+            android:id="@+id/phone_number" />
 
     </LinearLayout>
 
