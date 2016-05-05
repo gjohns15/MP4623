@@ -34,7 +34,7 @@ public class ProfileOther extends AppCompatActivity
     }
 
     private class Populate extends AsyncTask<String, String, String> {
-        String profile_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/profile_own.php";
+        String profile_other_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/profile_own.php";
 
         @Override
         protected String doInBackground(String... params) {
@@ -43,7 +43,7 @@ public class ProfileOther extends AppCompatActivity
             URL url = null;
 
             try {
-                url = new URL(profile_url);
+                url = new URL(profile_other_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setRequestMethod("POST");

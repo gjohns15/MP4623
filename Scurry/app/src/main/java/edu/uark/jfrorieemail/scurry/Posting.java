@@ -38,14 +38,14 @@ public class Posting  extends AppCompatActivity
         }
 
     private class Populate extends AsyncTask<String, String, String> {
-        String profile_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/post.php";
+        String posting_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/post.php";
 
         @Override
         protected String doInBackground(String... params) {
             URL url = null;
 
             try {
-                url = new URL(profile_url);
+                url = new URL(posting_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setRequestMethod("POST");
@@ -88,7 +88,7 @@ public class Posting  extends AppCompatActivity
             result = result.trim();
             String[] str = result.split(",");
             Title = (TextView) findViewById(R.id.titleText);
-            ;
+
             if (!(String.valueOf(str[0]) == null)) {
                 Title.setText(String.valueOf(str[1]));
             }
