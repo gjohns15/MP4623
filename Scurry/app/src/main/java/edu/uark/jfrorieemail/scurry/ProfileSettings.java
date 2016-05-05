@@ -31,8 +31,8 @@ import java.net.URLEncoder;
 public class ProfileSettings extends AppCompatActivity {
 
     TextView fname, lname, pnum, email;
-    EditText FN, LN, PN, EM, PS;
-    String first_name, last_name, Nemail, phone_number, password, cPass;
+    EditText FN, LN, PN, EM, PS, IPS;
+    String first_name, last_name, Nemail, phone_number, password, cPass, input_pass;
 
 
 
@@ -50,6 +50,7 @@ public class ProfileSettings extends AppCompatActivity {
         LN = (EditText) findViewById(R.id.lnameText);
         PN = (EditText) findViewById(R.id.numText);
         PS = (EditText) findViewById(R.id.passText);
+        IPS = (EditText) findViewById(R.id.passCText);
 
         Populate populate = new Populate();
         populate.execute();
@@ -60,43 +61,61 @@ public class ProfileSettings extends AppCompatActivity {
         Nemail = EM.getText().toString();
         phone_number = PN.getText().toString();
         password = PS.getText().toString();
+        input_pass = IPS.getText().toString();
 
 
 
         //Check if there are any blank or null values then check if email already exists then save changes
-            if(!(Nemail.trim().equals("") || Nemail == null)){
-                if(isEmailValid(Nemail) == false){
-                    Toast.makeText(getApplicationContext(), "Email not valid", Toast.LENGTH_SHORT).show();
+        if(input_pass.trim().equals("") || input_pass == null){
+            Toast.makeText(getApplicationContext(), "Please enter your current password.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            if (!(Nemail.trim().equals("") || Nemail == null)) {
+                if (isEmailValid(Nemail) == false) {
+                    Toast.makeText(getApplicationContext(), "Email not valid.", Toast.LENGTH_SHORT).show();
                 }
-            }
-            else {
+            } else {
                 Nemail = "no email";
             }
 
-            if (!(phone_number.trim().equals("") || phone_number == null)){
+            if (!(phone_number.trim().equals("") || phone_number == null)) {
 
-                if (isPhoneValid(phone_number) == false){
+                if (isPhoneValid(phone_number) == false) {
                     Toast.makeText(getApplicationContext(), "Phone number is not valid.", Toast.LENGTH_SHORT).show();
                 }
-            }
-            else{
+            } else {
                 phone_number = pnum.getText().toString();
             }
 
-            if(first_name.trim().equals("") || first_name == null){
+            if (first_name.trim().equals("") || first_name == null) {
                 first_name = fname.getText().toString();
             }
 
-            if(last_name.trim().equals("")|| last_name == null){
+            if (last_name.trim().equals("") || last_name == null) {
                 last_name = lname.getText().toString();
             }
 
-            if(password.trim().equals("") || password == null){
+            if (password.trim().equals("") || password == null) {
                 password = cPass;
             }
 
-            CheckEmail checkEmail = new CheckEmail();
-            checkEmail.execute(Nemail);
+            if(Nemail.equals("no email")){
+                Nemail = email.getText().toString();
+                if(input_pass.equals(cPass)){
+                    SaveChanges saveChanges = new SaveChanges();
+                    saveChanges.execute(first_name, last_name, Nemail, phone_number, password);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Passwrod Incorrrect", Toast.LENGTH_LONG).show();
+                }
+            }
+            else {
+                CheckEmail checkEmail = new CheckEmail();
+                checkEmail.execute(Nemail);
+            }
+        }
+
+
 
     }
     private boolean isEmailValid(String email){
@@ -163,12 +182,19 @@ public class ProfileSettings extends AppCompatActivity {
 
             }
             else {
-                SaveChanges saveChanges = new SaveChanges();
-                saveChanges.execute(first_name, last_name, Nemail, phone_number, password);
+                if(input_pass == cPass){
+                    SaveChanges saveChanges = new SaveChanges();
+                    saveChanges.execute(first_name, last_name, Nemail, phone_number, password);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Passwrod Incorrrect", Toast.LENGTH_LONG).show();
+                }
 
             }
         }
     }
+
+
 
 
     private class SaveChanges extends AsyncTask<String, String, String> {

@@ -174,13 +174,37 @@
         android:layout_below="@id/passView"
         android:maxLines="1"
         android:singleLine="true"/>
+
+    <!-- Current Password -->
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passCView"
+        android:text=" Enter current password to save changes"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_below="@+id/passText"/>
+    <EditText
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passCText"
+        android:hint="Password"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:paddingBottom="10dp"
+        android:layout_below="@id/passCView"
+        android:maxLines="1"
+        android:singleLine="true"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Changes"
         android:layout_gravity="center"
         android:onClick="onSave"
-        android:layout_below="@+id/passText"
+        android:layout_below="@+id/passCText"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
