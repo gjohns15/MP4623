@@ -12,6 +12,7 @@
         android:layout_height="100dp"
         android:text="Post a Job"
         android:onClick="onPost"
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="Search Local Jobs"
+        android:textSize="20dp"
         android:onClick="onLocalSearch"
         android:layout_below="@+id/post_button"
         android:layout_alignParentLeft="true"
@@ -33,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="Send Message (temp)"
+        android:textSize="20dp"
         android:onClick="onMessage"
         android:layout_below="@+id/localsearch_button"
         android:layout_alignParentLeft="true"

@@ -26,8 +26,8 @@ import java.net.URLEncoder;
  * Created by james on 3/13/2016.
  */
 public class PostingForm extends AppCompatActivity {
-    EditText ET_TITLE, ET_DESCRIPTION, ET_ADDRESS;
-    String title, description, address;
+    EditText ET_TITLE, ET_DESCRIPTION, ET_ADDRESS,ET_STREET, ET_CITY, ET_STATE, ET_ZIP;
+    String title, description, address, street, city, state, zip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,10 @@ public class PostingForm extends AppCompatActivity {
         setContentView(R.layout.job_posting);
         ET_TITLE = (EditText)findViewById(R.id.title);
         ET_DESCRIPTION = (EditText)findViewById(R.id.description);
-        ET_ADDRESS = (EditText)findViewById(R.id.address);
+        ET_STREET = (EditText)findViewById(R.id.street);
+        ET_CITY = (EditText)findViewById(R.id.city);
+        ET_STATE = (EditText)findViewById(R.id.state);
+        ET_ZIP = (EditText)findViewById(R.id.zip );
     }
 
     public  void onCancel(View view){
@@ -45,7 +48,10 @@ public class PostingForm extends AppCompatActivity {
     public void onPostJob(View view){
         title = ET_TITLE.getText().toString();
         description = ET_DESCRIPTION.getText().toString();
-        address = ET_ADDRESS.getText().toString();
+        street = ET_STREET.getText().toString();
+        city = ET_CITY.getText().toString();
+        state = ET_STATE.getText().toString();
+        zip = ET_ZIP.getText().toString();
 
         if(title.trim().equals("") || title == null){
             Toast.makeText(getApplicationContext(), "Please enter a title.", Toast.LENGTH_SHORT).show();
@@ -53,10 +59,20 @@ public class PostingForm extends AppCompatActivity {
         else if(description.trim().equals("")|| description == null){
             Toast.makeText(getApplicationContext(), "Please enter a description.", Toast.LENGTH_SHORT).show();
         }
-        else if(address.trim().equals("") || address == null){
-            Toast.makeText(getApplicationContext(), "Please enter an address.", Toast.LENGTH_SHORT).show();
+        else if(street.trim().equals("") || street == null){
+            Toast.makeText(getApplicationContext(), "Please enter an street.", Toast.LENGTH_SHORT).show();
+        }
+        else if(city.trim().equals("") || city == null){
+            Toast.makeText(getApplicationContext(), "Please enter an city.", Toast.LENGTH_SHORT).show();
+        }
+        else if(state.trim().equals("") || state == null){
+            Toast.makeText(getApplicationContext(), "Please enter an state.", Toast.LENGTH_SHORT).show();
+        }
+        else if(zip.trim().equals("") || zip == null){
+            Toast.makeText(getApplicationContext(), "Please enter an zip.", Toast.LENGTH_SHORT).show();
         }
         else {
+            address = street+ "," + city + "," + state + "," + zip;
             PostJob postJob = new PostJob();
             postJob.execute();
         }
@@ -122,6 +138,7 @@ public class PostingForm extends AppCompatActivity {
                 if (result.equals("Data insertion Success")) {
                     result = "Job Posted Successfully";
                     Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     result = "Error " + result;
                     Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();

@@ -24,11 +24,40 @@
         android:hint="Job Description"
         android:maxLines="1"
         android:singleLine="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Address"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/address"
-        android:hint="Job Address"
+        android:id="@+id/street"
+        android:hint="Your Street and house/aptartment number"
+        android:maxLines="1"
+        android:singleLine="true"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/city"
+        android:hint="Your City"
+        android:maxLines="1"
+        android:singleLine="true"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/state"
+        android:hint="Your State"
+        android:maxLines="1"
+        android:singleLine="true"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/zip"
+        android:hint="Your Zip Code"
         android:maxLines="1"
         android:singleLine="true"/>
     <Button
