@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -38,6 +39,8 @@ public class Message extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_message);
         MESSAGE_ET = (EditText)findViewById(R.id.message);
+        TextView name = (TextView)findViewById(R.id.name);
+        name.setText("TO: "+getIntent().getStringExtra("name"));
 
 
     }
@@ -54,8 +57,11 @@ public class Message extends AppCompatActivity
 
         @Override
         protected String doInBackground(String... params) {
+         //   SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
+         //   String ID = sharedpreferences.getString("idKey", "No ID");
+            String ID = getIntent().getStringExtra("ID");
             SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
-            String ID = sharedpreferences.getString("idKey", "No ID");
+            String sender_ID = sharedpreferences.getString("idKey", "No ID");
             URL url = null;
 
             try {
@@ -69,7 +75,8 @@ public class Message extends AppCompatActivity
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
                 String data = URLEncoder.encode("ID", "UTF-8") + "=" + URLEncoder.encode(ID, "UTF-8")  + "&" +
-                        URLEncoder.encode("message", "UTF-8") + "=" + URLEncoder.encode(message, "UTF-8");
+                        URLEncoder.encode("message", "UTF-8") + "=" + URLEncoder.encode(message, "UTF-8") + "&" +
+                        URLEncoder.encode("sender_ID", "UTF-8") + "=" + URLEncoder.encode(sender_ID, "UTF-8");
 
                 bufferedWriter.write(data);
                 bufferedWriter.flush();

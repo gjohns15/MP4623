@@ -122,11 +122,12 @@
             android:layout_width="48sp"
             android:layout_height="48sp"
             android:src="@drawable/message"
-            android:onClick="profSettings"
+            android:onClick="messages"
             android:id="@+id/imageView2"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            />
 
 
     </RelativeLayout>

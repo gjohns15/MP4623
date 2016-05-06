@@ -113,10 +113,8 @@ public class ProfilePage extends AppCompatActivity {
       startActivity(intent);
     }
 
-    //Changes to DM
-    public void DM(View view){
-        setContentView(R.layout.send_message);
-        Intent intent = new Intent(ProfilePage.this, Message.class);
+    public void messages(View view){
+        Intent intent = new Intent(ProfilePage.this, SeeMessages.class);
         startActivity(intent);
     }
 }

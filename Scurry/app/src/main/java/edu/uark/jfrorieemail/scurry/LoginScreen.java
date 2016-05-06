@@ -48,9 +48,6 @@ public class LoginScreen extends AppCompatActivity {
         if(email.trim().equals("") || email == null){
             Toast.makeText(getApplicationContext(), "Please enter an email.", Toast.LENGTH_SHORT).show();
         }
-        else if(isEmailValid(email) == false){
-            Toast.makeText(getApplicationContext(), "Email not valid.", Toast.LENGTH_SHORT).show();
-        }
         else if (password.trim().equals("") || password == null){
             Toast.makeText(getApplicationContext(), "Please enter a password.", Toast.LENGTH_SHORT).show();
         }
@@ -164,9 +161,6 @@ public class LoginScreen extends AppCompatActivity {
         }
     }
 
-    private boolean isEmailValid(String email){
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
 
     public void onSignUp(View view){
         startActivity(new Intent(this, CreateAccount.class));

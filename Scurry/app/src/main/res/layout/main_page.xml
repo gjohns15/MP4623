@@ -34,7 +34,7 @@
         android:id="@+id/message_button"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="Send Message (temp)"
+        android:text="Maps (temp)"
         android:textSize="20dp"
         android:onClick="onMessage"
         android:layout_below="@+id/localsearch_button"

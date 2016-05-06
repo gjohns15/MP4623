@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -38,6 +40,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.Map;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -48,7 +51,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleApiClient mClient;
     protected Location currentLocation;
     String poster;
-
+    private static final String TAG = MapsActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             URL url = null;
 
             try {
+                SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
+                String ID = sharedpreferences.getString("idKey", "No ID");
                 url = new URL(maps_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
@@ -118,7 +123,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         @Override
         protected void onPostExecute(String result) {
-            Geocoder coder = new Geocoder(this);
+            Geocoder coder = new Geocoder(getApplicationContext());
             result = result.trim();
             String[] str = result.split(",");
 
@@ -155,6 +160,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else if (mMap != null) {
             mMap.setMyLocationEnabled(true);
         }
+
+        currentLocation = LocationServices.FusedLocationApi.getLastLocation(mClient);
+        if (currentLocation != null) {
+
+            Double lat = currentLocation.getLatitude();
+            Double lng = currentLocation.getLongitude();
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), 16));
+            if (!Geocoder.isPresent()) {
+                return;
+            }
+
+
+        }
+        else {
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.0626, -94.1574), 14));
+            Log.d(TAG, "current location null");
+        }
     }
 
     @Override
@@ -178,21 +202,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onConnected(Bundle bundle) {
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         currentLocation = LocationServices.FusedLocationApi.getLastLocation(mClient);
         if (currentLocation != null) {
+            Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_LONG).show();
             Double lat = currentLocation.getLatitude();
             Double lng = currentLocation.getLongitude();
+            Toast.makeText(getApplicationContext(), lat.toString(), Toast.LENGTH_LONG).show();
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), 16));
             if (!Geocoder.isPresent()) {
                 return;
             }
-            mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(lat, lng))
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
+
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "current location null", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "current location null");
         }
     }
 
