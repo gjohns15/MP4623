@@ -13,6 +13,7 @@
         android:text="Post a Job"
         android:onClick="onPost"
         android:textSize="20dp"
+        android:layout_marginTop="89dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -26,38 +27,26 @@
         android:textSize="20dp"
         android:onClick="onLocalSearch"
         android:layout_below="@+id/post_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <!-- Message Button -->
-    <Button
-        android:id="@+id/message_button"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="Maps (temp)"
-        android:textSize="20dp"
-        android:onClick="onMessage"
-        android:layout_below="@+id/localsearch_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+     />
 
     <!-- Profile Button -->
     <Button
         android:id="@+id/profile_button"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_width="110dp"
+        android:layout_height="75dp"
         android:text="Profile"
         android:onClick="onProfile"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
 
     <!-- Logout Button -->
     <Button
         android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_width="110dp"
+        android:layout_height="75dp"
         android:text="Logout"
         android:onClick="onLogout"
         android:layout_alignParentBottom="true"
