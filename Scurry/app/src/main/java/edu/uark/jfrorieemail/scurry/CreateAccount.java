@@ -94,7 +94,7 @@ public class CreateAccount extends AppCompatActivity {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
     private boolean isPhoneValid(String phone_number){
-        return PhoneNumberUtils.isGlobalPhoneNumber(phone_number);
+        return true;
     }
 
     private class CheckEmail extends  AsyncTask<String, String, String>{
@@ -162,8 +162,7 @@ public class CreateAccount extends AppCompatActivity {
             }
             else {
                 CreateNewAccount createNewAccount = new CreateNewAccount(CreateAccount.this);
-                createNewAccount.execute(first_name, last_name, email, password1);
-                finish();
+                createNewAccount.execute(first_name, last_name, email, password1, phone_number);
             }
         }
     }
@@ -181,6 +180,7 @@ public class CreateAccount extends AppCompatActivity {
             String last_name = params[1];
             String email = params[2];
             String password = params[3];
+            String phone_number = params[4];
 
             URL url = null;
             try {
@@ -195,7 +195,8 @@ public class CreateAccount extends AppCompatActivity {
                 String data = URLEncoder.encode("first_name", "UTF-8") + "=" + URLEncoder.encode(first_name, "UTF-8") + "&" +
                         URLEncoder.encode("last_name", "UTF-8") + "=" + URLEncoder.encode(last_name, "UTF-8") + "&" +
                         URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8") + "&" +
-                        URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                        URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8") + "&" +
+                URLEncoder.encode("phone_number", "ASCII") + "=" + URLEncoder.encode(phone_number, "ASCII");
 
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
@@ -239,6 +240,7 @@ public class CreateAccount extends AppCompatActivity {
             if(result.equals("Data insertion Success")){
                 result = "Registration Successful";
                 Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
+                finish();
             }
             else {
                 result = "Error " + result;
