@@ -245,10 +245,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onInfoWindowClick(Marker marker)
     {
-        Intent intent = new Intent(MapsActivity.this, Posting.class);
+    /*    Intent intent = new Intent(MapsActivity.this, Posting.class);
         intent.putExtra("title", marker.getTitle());
         intent.putExtra("poster", poster);
-        startActivity(intent);
+        startActivity(intent);*/
 
     }
 }

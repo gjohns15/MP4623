@@ -106,7 +106,7 @@ public class ProfileSettings extends AppCompatActivity {
                     saveChanges.execute(first_name, last_name, Nemail, phone_number, password);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Passwrod Incorrrect", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Password Incorrrect", Toast.LENGTH_LONG).show();
                 }
             }
             else {
@@ -183,12 +183,12 @@ public class ProfileSettings extends AppCompatActivity {
 
             }
             else {
-                if(input_pass == cPass){
+                if(input_pass.equals(cPass)){
                     SaveChanges saveChanges = new SaveChanges();
                     saveChanges.execute(first_name, last_name, Nemail, phone_number, password);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Passwrod Incorrrect", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Password Incorrrect", Toast.LENGTH_LONG).show();
                 }
 
             }
