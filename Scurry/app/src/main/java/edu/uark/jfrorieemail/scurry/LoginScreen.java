@@ -38,6 +38,7 @@ public class LoginScreen extends AppCompatActivity {
 
     public void onLogin(View view){
 
+        //Get email and password from user and check if the values exist/are white space
         EditText email_et = (EditText) findViewById(R.id.email);
         EditText password_et = (EditText) findViewById(R.id.password);
 
@@ -57,17 +58,10 @@ public class LoginScreen extends AppCompatActivity {
           loginAccount.execute(email, password);
 
 
-
-
-         /*   if(true){
-                setContentView(R.layout.main_page);
-
-                //Starting the intent for the next class
-                Intent intent = new Intent(LoginScreen.this, MainScreen.class);
-                startActivity(intent);
-            }*/
         }
     }
+
+    //Login to account
     private class LoginAccount extends AsyncTask<String, String, String> {
         public static final String Name = "nameKey";
         public static final String ID = "idKey";

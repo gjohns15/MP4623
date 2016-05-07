@@ -48,6 +48,7 @@ public class AllJobs extends AppCompatActivity {
         Populate populate = new Populate();
         populate.execute();
 
+        //Go to profile page when job is clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int pos = parent.getPositionForView(view);
@@ -61,6 +62,7 @@ public class AllJobs extends AppCompatActivity {
 
     }
 
+    //Populate the list with all the jobs from the database
     private class Populate extends AsyncTask<String, String, String> {
         String jobs_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/all_jobs.php";
 
@@ -110,7 +112,6 @@ public class AllJobs extends AppCompatActivity {
             String temp = "";
             posterIDS = new String[length/5];
             for(int i = 1, j =0 ; i<length;){
-               // if(i%2 == 0){
                 if(i%5==0){
                     posterIDS[j] = str[i];
                     j++;

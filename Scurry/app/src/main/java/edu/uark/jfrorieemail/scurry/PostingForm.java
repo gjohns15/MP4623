@@ -46,6 +46,7 @@ public class PostingForm extends AppCompatActivity {
     }
 
     public void onPostJob(View view){
+        //Get values from user
         title = ET_TITLE.getText().toString();
         description = ET_DESCRIPTION.getText().toString();
         street = ET_STREET.getText().toString();
@@ -53,6 +54,7 @@ public class PostingForm extends AppCompatActivity {
         state = ET_STATE.getText().toString();
         zip = ET_ZIP.getText().toString();
 
+        //Check for null values/white space
         if(title.trim().equals("") || title == null){
             Toast.makeText(getApplicationContext(), "Please enter a title.", Toast.LENGTH_SHORT).show();
         }
@@ -79,6 +81,7 @@ public class PostingForm extends AppCompatActivity {
 
     }
 
+    //Put job in database
     private class PostJob extends AsyncTask<String, String, String> {
 
 

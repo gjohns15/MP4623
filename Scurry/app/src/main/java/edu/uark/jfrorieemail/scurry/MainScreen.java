@@ -43,9 +43,6 @@ public class MainScreen extends AppCompatActivity{
     }
 
     public void onLogout(View view){
-        //Save all the information
-        //Go back to the login page
-        //or Destroy()
        SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.clear();

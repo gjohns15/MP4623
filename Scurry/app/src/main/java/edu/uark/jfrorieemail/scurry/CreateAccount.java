@@ -97,6 +97,7 @@ public class CreateAccount extends AppCompatActivity {
         return true;
     }
 
+    //Checks if email is already in use
     private class CheckEmail extends  AsyncTask<String, String, String>{
         AlertDialog alertDialog;
         Context ctx;
@@ -167,7 +168,7 @@ public class CreateAccount extends AppCompatActivity {
         }
     }
 
-
+    //Creates Account
     private class CreateNewAccount extends AsyncTask<String, String, String> {
         Context ctx;
         CreateNewAccount(Context ctx){

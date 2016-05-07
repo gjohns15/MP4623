@@ -35,6 +35,7 @@ public class ProfileOther extends AppCompatActivity
         populate.execute();
     }
 
+    //Populate no loged in users profile page with information from the database
     private class Populate extends AsyncTask<String, String, String> {
         String profile_other_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/profile_own.php";
 
@@ -104,6 +105,7 @@ public class ProfileOther extends AppCompatActivity
     }
 
 
+    //Not implemented
     public void reviewDriver(View view)
     {
         //Intent intent = new Intent(ProfileOther.this, PostReview.class);
@@ -112,6 +114,7 @@ public class ProfileOther extends AppCompatActivity
      //  startActivity(intent);
     }
 
+    //Send message to profile page owner
     public void onSendMessage(View view)
     {
         IDE = getIntent().getStringExtra("ID");

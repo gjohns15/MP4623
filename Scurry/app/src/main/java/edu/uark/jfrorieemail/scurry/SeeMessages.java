@@ -48,6 +48,7 @@ public class SeeMessages extends AppCompatActivity {
         Populate populate = new Populate();
         populate.execute();
 
+        //Go to profile page when job is clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                // Toast.makeText(getApplicationContext(), parent.getPositionForView(view), Toast.LENGTH_SHORT).show();
@@ -61,6 +62,7 @@ public class SeeMessages extends AppCompatActivity {
 
     }
 
+    //Get all messages sent to the loged in user from the database
     private class Populate extends AsyncTask<String, String, String> {
         String messages_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/see_messages.php";
 

@@ -130,6 +130,7 @@ public class ProfileSettings extends AppCompatActivity {
         }
     }
 
+    //Checks if email is already in use, if not call SaveChanges if password is correct
     private class CheckEmail extends  AsyncTask<String, String, String>{
 
         @Override
@@ -195,8 +196,7 @@ public class ProfileSettings extends AppCompatActivity {
     }
 
 
-
-
+    //Saves the Changes made by the user to the database
     private class SaveChanges extends AsyncTask<String, String, String> {
 
         @Override
@@ -246,13 +246,6 @@ public class ProfileSettings extends AppCompatActivity {
                 httpURLConnection.disconnect();
                 return response;
 
-
-
-                /*InputStream IS = httpURLConnection.getInputStream();
-                IS.close();
-                httpURLConnection.disconnect();
-                httpURLConnection.disconnect();
-                return "Registration Success";*/
 
 
             } catch (MalformedURLException e) {

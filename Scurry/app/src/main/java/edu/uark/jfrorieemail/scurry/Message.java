@@ -51,7 +51,7 @@ public class Message extends AppCompatActivity
         sendMessage.execute();
     }
 
-
+    //Send Message to the users profile page from the previous view
     private class sendMessage extends AsyncTask<String, String, String> {
         String profile_url = "http://ec2-54-200-178-12.us-west-2.compute.amazonaws.com/scurry/messages.php";
 
