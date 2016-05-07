@@ -33,6 +33,7 @@
         <activity android:name=".Message"/>
         <activity android:name=".SeeMessages"/>
         <activity android:name=".ProfileOther"/>
+        <activity android:name=".AllJobs"/>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

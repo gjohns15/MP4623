@@ -13,10 +13,10 @@
         android:text="Post a Job"
         android:onClick="onPost"
         android:textSize="20dp"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="36dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/logout_button"
+        android:layout_alignEnd="@+id/logout_button" />
 
     <!-- Job Search Button -->
     <Button
@@ -28,6 +28,17 @@
         android:onClick="onLocalSearch"
         android:layout_below="@+id/post_button"
      />
+
+    <!-- All Job Button -->
+    <Button
+        android:id="@+id/alljobs_button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="See all Jobs"
+        android:textSize="20dp"
+        android:onClick="onAllJobs"
+        android:layout_below="@+id/localsearch_button"
+        />
 
     <!-- Profile Button -->
     <Button

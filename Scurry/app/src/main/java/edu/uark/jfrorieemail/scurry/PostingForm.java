@@ -72,7 +72,7 @@ public class PostingForm extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter an zip.", Toast.LENGTH_SHORT).show();
         }
         else {
-            address = street+ "," + city + "," + state + "," + zip;
+            address = street+ ", " + city + ", " + state + " " + zip;
             PostJob postJob = new PostJob();
             postJob.execute();
         }

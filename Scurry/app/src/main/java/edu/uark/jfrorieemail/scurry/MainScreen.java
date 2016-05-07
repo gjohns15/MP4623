@@ -37,8 +37,8 @@ public class MainScreen extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void onMessage(View view){
-        Intent intent = new Intent(MainScreen.this, Message.class);
+    public void onAllJobs(View view){
+        Intent intent = new Intent(MainScreen.this, AllJobs.class);
         startActivity(intent);
     }
 

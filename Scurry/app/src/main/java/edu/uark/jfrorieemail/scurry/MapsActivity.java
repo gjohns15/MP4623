@@ -50,7 +50,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private GoogleApiClient mClient;
     protected Location currentLocation;
-    String poster;
+    String poster = "name";
     private static final String TAG = MapsActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +80,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             URL url = null;
 
             try {
-                SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
-                String ID = sharedpreferences.getString("idKey", "No ID");
+               // SharedPreferences sharedpreferences = getSharedPreferences(LoginScreen.MyPREFERENCES, Context.MODE_PRIVATE);
+               // String ID = sharedpreferences.getString("idKey", "No ID");
+                String ID = "1";
                 url = new URL(maps_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
@@ -125,16 +126,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         protected void onPostExecute(String result) {
             Geocoder coder = new Geocoder(getApplicationContext());
             result = result.trim();
-            String[] str = result.split(",");
+            String[] str = result.split("!");
 
             try
             {
-                List<Address> posting = coder.getFromLocationName(str[2], 1);
+                List<Address> posting = null;
+                for(int i =0; i< 5; i++) {
+                    posting = coder.getFromLocationName(str[2], 1);
+                }
 
-                Address post = posting.get(0);
-                LatLng jobMarker = new LatLng(post.getLatitude(), post.getLongitude());
+                if(!posting.isEmpty()) {
+                    Address post = posting.get(0);
+                    LatLng jobMarker = new LatLng(post.getLatitude(), post.getLongitude());
 
-                mMap.addMarker(new MarkerOptions().position(jobMarker).title(str[0]));
+                    mMap.addMarker(new MarkerOptions().position(jobMarker).title(str[0]));
+                }
             }
 
             catch (IOException e) {
@@ -179,6 +185,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.0626, -94.1574), 14));
             Log.d(TAG, "current location null");
         }
+
     }
 
     @Override
